@@ -46,3 +46,20 @@ RUN npm install
 COPY . /app
 ...
 ```
+
+
+### Attached vs Detached Mode
+- Attached : foreground에서 실행되는 것으로 로그를 확인할 수 있다.
+- Detached : background에서 실행된다.
+```console
+$ docker run -p 3000:80 -d 9fbad7235d7c
+```
+attached mode로 변환 가능하다.
+```console
+$ docker attach {Container ID}
+```
+detached mode에서 
+```console
+$ docker logs {Container ID}
+```
+로 로그를 확인할 수 있디.
