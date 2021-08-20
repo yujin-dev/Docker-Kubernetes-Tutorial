@@ -1,8 +1,7 @@
 # Udemy Lecture Note
 - 출처:  https://www.udemy.com/course/docker-kubernetes-the-practical-guide/
-- example 1 : https://github.com/yujin-dev/Docker-Kubernetes-Tutorial/tree/master/udemy-note/example_1
-- example 2 : https://github.com/yujin-dev/Docker-Kubernetes-Tutorial/tree/master/udemy-note/example_2
-- example 3 : https://github.com/yujin-dev/Docker-Kubernetes-Tutorial/tree/master/udemy-note/example_3
+
+
 
 ## Docker
 container 기술로 containers를 생성하고 관리하는 tool을 의미한다. 도커를 통해 같은 application을 동일한 환경으로 실행할 수 있다.
