@@ -48,7 +48,7 @@ Successfully built 90db42db7ea2
 ### 컨테이너 실행
 `docker run`을 통해 새로운 컨테이너를 실행한다.
 OS 와 컨테이너를 연결하기 위한 port를 명시해준다. 컨테이너 port 를 열어주어 외부에서 접속할 수 있도록 한다. 
-`-p {로컬 port}:{컨테이너} port}`를 설정하여 port를 매핑한다.
+`-p {로컬 port}:{컨테이너 port}`를 설정하여 port를 매핑한다.
 ```console
 $ docker run -p 3000:3000 90db42db7ea2AA
 ``` 

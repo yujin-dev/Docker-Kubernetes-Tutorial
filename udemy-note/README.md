@@ -30,4 +30,4 @@ container 기술로 containers를 생성하고 관리하는 tool을 의미한다
 Image를 기반으로 여러 container를 생성할 수 있다.
 
 ### Interactive Shell
-container 내부적으로 접근하기 위해서는 명령어에 1`-it` 옵션을 추가한다.
+container 내부적으로 접근하기 위해서는 명령어에 `-it` 옵션을 추가한다.
