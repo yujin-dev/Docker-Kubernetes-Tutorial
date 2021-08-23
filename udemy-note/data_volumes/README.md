@@ -72,3 +72,15 @@ $ docker volume inspect feedback
 ```
 
 volume을 제거하기 위해서는 `docker volume rm {volume id OR name}`를 실행하는데 기반이 되는 container를 먼저 제거해야 된다. 
+
+## ARGuments & ENVironment Variables
+Dockerfile에서 `ENV`로 `PORT`를 환경 변수로 설정하여 command에서 수동으로 입력할 수 있다.
+
+```console
+$ docker run -d --rm -p 3000:8000 --env PORT=8000 --name feedback-app -v feedback:/app/feedback -v "/home/leeyujin/yujin-dev/Docker-Kubernetes-Tutorial/udemy-note/data_volumes/example_1:/app:ro" -v /app/temp -v /app/node_modules  feedback-app:env
+```
+`.env`파일로도 적용 가능하다.
+```console
+$ docker run -d --rm -p 3000:8000 --env-file .env --name feedback-app -v feedback:/app/feedback -v "/home/leeyujin/yujin-dev/Docker-Kubernetes-Tutorial/udemy-note/data_volumes/example_1:/app:ro" -v /app/temp -v /app/node_modules  feedback-app:env
+
+```
