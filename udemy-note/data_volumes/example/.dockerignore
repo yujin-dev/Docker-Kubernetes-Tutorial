@@ -1,0 +1,3 @@
+# node_moduels가 있으면 제외: npm install 시 로컬에 해당 폴더가 있으면 overwrite된다.
+node_modules
+
