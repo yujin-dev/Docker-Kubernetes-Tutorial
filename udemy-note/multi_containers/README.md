@@ -21,7 +21,10 @@ $ docker run --name goals-backend --rm -d -p 80:80 goals-node
 ### Dockerize React SPA
 로컬에서 react web을 접속할 수 있도록 port를 개방한다.
 ```console
-$ docker run--name goals-frontend --rm -d -p 3000:3000 -it goals-react
+$ docker run --name goals-frontend --rm -d -p 3000:3000 -it goals-react
 ```
 
 ## network를 이용
+```console
+$ docker network create goals-net
+```
