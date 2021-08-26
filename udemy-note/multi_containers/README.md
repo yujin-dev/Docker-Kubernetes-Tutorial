@@ -61,3 +61,8 @@ backend의 `app.js`의 mongodb 주소를 username, password를 포함하여 `mon
 ```console
 $ docker run --name goals-backend  -v /home/leeyujin/yujin-dev/Docker-Kubernetes-Tutorial/udemy-note/multi_containers/example/backend:/app -v logs:/app/logs -v /app/node_modules -e MONGODB_USERNAME=max --rm -d -p 80:80 --network goals-net  goals-node
 ```
+
+## Live Source Code Updates 
+실시간으로 소스 코드를 반영하여 front를 확인하기 위해 아래와 같이 실행한다.
+```console
+$ docker run /home/leeyujin/yujin-dev/Docker-Kubernetes-Tutorial/udemy-note/multi_containers/example/frontend/src://app/src --name goals-frontend --rm -p 3000:3000 -it goals-react
