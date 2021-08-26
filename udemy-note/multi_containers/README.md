@@ -56,5 +56,8 @@ db에 authentication을 부여한다.
 ```console
 $ docker run --name mongodb -v data:/data/db --rm -d --network goals-net -e MONGO_INITDB_ROOT_USERNAME=max -e MONGO_INITDB_ROOT_PASSWORD=secret mongo
 ```
+backend의 `app.js`의 mongodb 주소를 username, password를 포함하여 `mongodb://max:secret@mongodb:27017/course-goals?authSource=admin`로 설정한다.
 
-backend의 `app.js`의 mongodb 주소를 username, password를 포함하여 `mongodb://max:secret@mongodb:27017/course-goals?authSource=admin`로 설정한다. 
+```console
+$ docker run --name goals-backend  -v /home/leeyujin/yujin-dev/Docker-Kubernetes-Tutorial/udemy-note/multi_containers/example/backend:/app -v logs:/app/logs -v /app/node_modules -e MONGODB_USERNAME=max --rm -d -p 80:80 --network goals-net  goals-node
+```
