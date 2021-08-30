@@ -66,4 +66,6 @@ $ docker run /home/leeyujin/yujin-dev/Docker-Kubernetes-Tutorial/udemy-note/mult
 `yml` 파일 형식을 사용하는데 indentation으로 dependencies를 파악하는 파일이다.
 ```console
 $ docker run --name goals-backend  -v /home/leeyujin/yujin-dev/Docker-Kubernetes-Tutorial/udemy-note/multi_containers/example/backend:/app -v logs:/app/logs -v /app/node_modules -e MONGODB_USERNAME=max --rm -d -p 80:80 --network goals-net  goals-node
-```
+```                 
+
+docker compose를 사용하면 자동으로 network를 생성하므로 따로 network를 만들어줄 필요는 없다.
