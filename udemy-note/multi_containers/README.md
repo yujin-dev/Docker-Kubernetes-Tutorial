@@ -41,7 +41,7 @@ react SPA의 코드는 컨테이너에서 실행되는 것이 아닌 브라우�
 $ docker run --name goals-frontend --rm -p 3000:3000 -it goals-react
 ```
 
-## Adding Data Persistence
+### Adding Data Persistence
 ```console
 $ docker run --name mongodb -v data:/data/db --rm -d --network goals-net mongo
 ```
@@ -50,11 +50,15 @@ $ docker run --name mongodb -v data:/data/db --rm -d --network goals-net mongo
 $ docker run --name goals-backend  -v /home/leeyujin/yujin-dev/Docker-Kubernetes-Tutorial/udemy-note/multi_containers/example/backend:/app -v logs:/app/logs -v /app/node_modules --rm -d -p 80:80 --network goals-net  goals-node
 ```
 
-
-## Authentication 
+### Authentication 
 db에 authentication을 부여한다. 
 ```console
 $ docker run --name mongodb -v data:/data/db --rm -d --network goals-net -e MONGO_INITDB_ROOT_USERNAME=max -e MONGO_INITDB_ROOT_PASSWORD=secret mongo
 ```
 
 backend의 `app.js`의 mongodb 주소를 username, password를 포함하여 `mongodb://max:secret@mongodb:27017/course-goals?authSource=admin`로 설정한다. 
+
+
+## Docker Compose
+하나의 configuration 파일을 기반으로 여러 `docker build ...` , `docker run ...` 을 실행할 수 있다.
+`yml` 파일 형식을 사용하는데 indentation으로 dependencies를 파악하는 파일이다.
