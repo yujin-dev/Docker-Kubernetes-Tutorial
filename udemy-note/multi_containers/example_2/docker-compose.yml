@@ -4,13 +4,39 @@ services:
     image: 'mongo'
     volumes: 
       - data:/data/db
-    environment: 
-      - MONGO_INITDB_ROOT_USERNAME: max
-      - MONGO_INITDB_ROOT_PASSWORD: secret
+    # environment: 
+    #   MONGO_INITDB_ROOT_USERNAME: max
+    #   MONGO_INITDB_ROOT_PASSWORD: secret
     env_file:
       - ./env/mongo.env    
-  # backend:
-  # frontend:
+  backend:
+    build: ./backend
+      # context: ./backend
+      # dockerfile: Dockerfile-dev
+      # args:
+      #   some-arg:1
+    ports: 
+      - '80:80'
+    volumes: 
+      - logs:/app/logs
+      - ./backend:/app # bind mounts : 절대경로 대신 docker-compose에서 상대경로로 설정 가능
+      - /app/node_modules
+    env_file:
+      - ./env/backend.env    
+    depends_on: # mongodb 실행되어야만 실행
+      - mongodb
 
-  volumes: # named volumes만 specify 필요함
-    data: 
+  frontend:
+    build: ./frontend
+    ports:
+      - '3000:3000'
+    volumes: 
+      - ./frontend/src:/app/src
+    stdin_open: true # open input( interactive mode )
+    tty: true # attaching terminal
+    depends_on: 
+      - backend
+
+volumes: # named volumes만 명시
+  data: 
+  logs:

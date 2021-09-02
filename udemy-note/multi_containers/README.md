@@ -60,8 +60,18 @@ backend의 `app.js`의 mongodb 주소를 username, password를 포함하여 `mon
 실시간으로 소스 코드를 반영하여 front를 확인하기 위해 아래와 같이 실행한다.
 ```console
 $ docker run /home/leeyujin/yujin-dev/Docker-Kubernetes-Tutorial/udemy-note/multi_containers/example/frontend/src://app/src --name goals-frontend --rm -p 3000:3000 -it goals-react
+```
 
 ## Docker Compose
+
+### 설치
+리눅스에서는 따로 docker-compose를 설치해야 한다.
+```console
+$ sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+$ sudo chmod +x /usr/local/bin/docker-compose
+$ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+```
+
 하나의 configuration 파일을 기반으로 여러 `docker build ...` , `docker run ...` 을 실행할 수 있다.
 `yml` 파일 형식을 사용하는데 indentation으로 dependencies를 파악하는 파일이다.
 ```console
@@ -69,3 +79,20 @@ $ docker run --name goals-backend  -v /home/leeyujin/yujin-dev/Docker-Kubernetes
 ```                 
 
 docker compose를 사용하면 자동으로 network를 생성하므로 따로 network를 만들어줄 필요는 없다.
+
+### `docker-compose up`
+`example_2_default` network로 자동 생성되는 것을 볼 수 있다. 이미지를 생성한 후 자동으로 컨테이너를 실행한다.
+```console
+$ docker-compose up
+Creating network "example_2_default" with the default driver
+Creating volume "example_2_data" with default driver
+Pulling mongodb (mongo:)...
+
+Digest: sha256:58ea1bc09f269a9b85b7e1fae83b7505952aaa521afaaca4131f558955743842
+Status: Downloaded newer image for mongo:latest
+Creating example_2_mongodb_1 ... done
+Attaching to example_2_mongodb_1
+```
+
+### `docker-compose build`
+이미지를 생성하고 컨테이너를 실행하지 않는다.
