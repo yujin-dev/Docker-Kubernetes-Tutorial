@@ -1,7 +1,7 @@
 # Docker Lecture
-Udemy 강의를 듣고 정리한 공간. 
-- 출처:  https://www.udemy.com/course/docker-kubernetes-the-practical-guide/
-### 목록
+[Udemy 강의](https://www.udemy.com/course/docker-kubernetes-the-practical-guide/)를 듣고 정리한 공간. 
+
+[ 목록 ]
 - Data Volumes: https://github.com/yujin-dev/Docker-Kubernetes-Tutorial/tree/master/data_volumes
 - Image Containers: https://github.com/yujin-dev/Docker-Kubernetes-Tutorial/tree/master/images_containers
 - Larevel PHP Setup 실습 : https://github.com/yujin-dev/Docker-Kubernetes-Tutorial/tree/master/laravel_php_setup
