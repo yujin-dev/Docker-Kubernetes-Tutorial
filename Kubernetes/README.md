@@ -22,3 +22,6 @@ node는 machines, virtual instance를 의미한다.
 - Scheduler : worker node를 모니터링한다.
 - Kube-Controller-Manager : pod 갯수가 유지되는지 확인하고 worker node를 제어한다.
 - Cloud-Controller-Manager
+
+## Setup
+- kubectl : cluster와 소통하기 위해 필요한 command tool
