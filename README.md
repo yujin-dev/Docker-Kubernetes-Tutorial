@@ -29,10 +29,50 @@ container 기술로 containers를 생성하고 관리하는 tool을 의미한다
 - 공유 및 배포가 쉽다.
 - 전체 머신보다는 application 및 환경을 캡슐화한다.
 
-### Images vs. Containers
+## Images vs. Containers
 - Containers : 실제 실행되는 소프트웨어 단위(instance)
 - Images : containers 탬플릿으로 실제 코드나 tools/runtimes를 포함한다.
 Image를 기반으로 여러 container를 생성할 수 있다.
 
+### Containers
+- 격리된 환경: 고유의 데이터, 파일 시스템을 갖는다.
+- single-task에 집중되어 있다.
+- 공유 및 복제가 가능하다.
+- stateless: 컨테이너 내부에서 데이터를 저장하나 컨테이너가 삭제되면 데이터도 사라짐
+- volumes으로 데이터를 저장할 수 있다.
+
+### Images
+- 컨테이너를 위한 blueprints
+- code + environment
+- read-only
+- 공유 가능하고 build할 수 있다.
+
+## Commands
+#### Dockerfile 기반으로 이미지 빌드
+`docker build -t NAME:TAG .`
+
+#### 이미지 기반으로 컨테이너 실행
+`docker run --name NAME --rm -d IMAGE`
+
+#### Docker Hub을 통해 이미지 공유
+- `docker push REPOSITORY/NAME:TAG`
+- `docker pull REPOSITORY/NAME:TAG`
+
+#### Bind Mounts : host 머신에 연결하여 데이터를 저장
+`-v /local/path:/container/path`
+
+#### Volumes: 데이터 보존
+`-v NAME:/container/path`
+
+#### Networks
+같은 네트워크를 공유하여 컨테이너를 연결할 수 있다.
+
+#### Docker Compose
+build를 미리 정의하고 .yml 파일을 실행한다.
+- `docker-compose up` : 이미지를 빌드하고 컨테이너를 실행한다.
+- `docker-compose down`: 실행중인 컨테이너를 중단한다.  
+
 ### Interactive Shell
 container 내부적으로 접근하기 위해서는 명령어에 `-it` 옵션을 추가한다.
+
+
